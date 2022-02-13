@@ -9,11 +9,9 @@
     </head>
     <body>
         <h1>放射線技師Hub</h1>
-        @foreach($posts as $post)
-        <div class='posts'>
-            <h2 class='title'><a href='/posts/{{ $post->id }}'>{{ $post->title }}</a></h2>
+        <div class='post'>
+            <h2 class='title'>{{ $post->id }}</h2>
             <p class='body'>{{ $post->contents }}</p>
         </div>
-        @endforeach
     </body>
 </html>

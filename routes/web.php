@@ -16,4 +16,7 @@
 // });
 
 Route::get('/','PostController@index');
-// Route::get('/','PostController@index')->middleware('auth');
+Route::get('/posts/create','PostController@create');
+Route::get('/posts/{post}','PostController@show'); //{post}は何でも入っていい変数
+Route::post('/posts','PostController@store');
+Route::get('/sure','PostController@dubug');
