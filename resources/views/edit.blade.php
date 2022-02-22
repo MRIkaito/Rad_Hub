@@ -13,7 +13,7 @@
             <h2 class='title'>{{ $post->title }}</h2>
             <!--ここにカテゴリを入れる-->
             <p class='body'>{{ $post->contents }}</p>
-            <p>[<a href="/posts/{$post->id}/edit">編集</a>]</p>
+            <p>[<a href="/posts/{$post}/edit">編集</a>]</p>
             <p>[<a href="/">戻る</a>]</p>
             <form action="/posts/{{$post->id}}" method="post">
                 @csrf

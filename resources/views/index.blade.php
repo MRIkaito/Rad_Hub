@@ -9,10 +9,15 @@
     </head>
     <body>
         <h1>放射線技師Hub</h1>
+        <p>[<a href = 'posts/create'>作成</a>]</p>
         @foreach($posts as $post)
         <div class='posts'>
             <h2 class='title'><a href='/posts/{{ $post->id }}'>{{ $post->title }}</a></h2>
             <p class='body'>{{ $post->contents }}</p>
+            <p class='created_at'>作成日：{{$post->created_at}}</p>
+            <p class='updated_at'>更新日：{{$post->updated_at}}</p>
+            <p class='category'>カテゴリー：{{$post->category_id}}</p>
+            <p class='updated_at'></p>
         </div>
         @endforeach
     </body>

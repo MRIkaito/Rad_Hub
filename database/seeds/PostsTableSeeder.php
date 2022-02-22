@@ -13,7 +13,8 @@ class PostsTableSeeder extends Seeder
     public function run()
     {
         $param = [
-            'title' => 'X線検査で気をつけること',
+            'title' => 'X線検査',
+            'contents' => '妊婦は気をつけよう',
             'category_id' => 1,
             'user_id' => 1,
             'created_at'=>now(),
@@ -22,7 +23,8 @@ class PostsTableSeeder extends Seeder
         DB::table('posts')->insert($param);
     
         $param = [
-            'title' => 'CT検査で気をつけること',
+            'title' => 'CT検査',
+            'contents' => '被ばくは多い',
             'category_id' => 2,
             'user_id' => 2,
             'created_at'=>now(),

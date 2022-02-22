@@ -11,14 +11,8 @@
         <h1>記事投稿画面</h1>
         
         <!--入力フォーム-->
-        <form action='/posts' method = "POST" enctype="multipart/form-data">
+        <form action='/image/posts' method = "POST" enctype="multipart/form-data">
             @csrf
-            <div>
-                <input type="text" name="post[title]" placeholder="タイトル">
-            </div>
-            <div>
-                <textarea type="text" name="post[contents]" placeholder="本文をココから書き始める" rows="10" cols="100"></textarea>
-            </div>
             <div>
                 <input id="image" name="image" type="file">
             </div>    

@@ -25,13 +25,27 @@ class PostController extends Controller
     }
     public function store(Post $post, Request $request)
     {
+        // $input = $request['post'];
         $post->fill($request['post'])->save();
         return redirect('/posts/'.$post->id);
     }
+    public function delete(Post $post)
+    {
+     $post->delete();
+     return redirect('/');
+    }
+    public function edit(Post $post)
+    {
+        return view('edit');    
+    }
+    public function photo()
+    {
+        return view('image');
+    }
     public function dubug(Post $post)
     {
-        return dd(with(['posts' => $post->get()])); 
-        // return dd(with($post));
+        // return dd($request['post']); 
+        return dd($post->get());
         // return dd($post);
     }
 }
