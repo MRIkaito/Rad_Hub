@@ -42,11 +42,5 @@ class PostController extends Controller
     {
         return view('image');
     }
-    public function dubug(Post $post)
-    {
-        // return dd($request['post']); 
-        return dd($post->get());
-        // return dd($post);
-    }
 }
 ?>

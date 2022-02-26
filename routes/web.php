@@ -22,5 +22,4 @@ Route::get('/posts/{post}','PostController@show'); //{post}は何が入っても
 Route::delete('posts/{post}', 'PostController@delete');
 Route::post('/posts','PostController@store');
 Route::get('/image','PostController@photo');
-Route::post('/image/posts','ImageController@store');
-Route::get('/sure','PostController@dubug');
+Route::post('/image','ImagesController@create');
