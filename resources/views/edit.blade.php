@@ -9,17 +9,34 @@
     </head>
     <body>
         <h1>放射線技師Hub</h1>
-        <div class='post'>
-            <h2 class='title'>{{ $post->title }}</h2>
-            <!--ここにカテゴリを入れる-->
-            <p class='body'>{{ $post->contents }}</p>
-            <p>[<a href="/posts/{$post}/edit">編集</a>]</p>
-            <p>[<a href="/">戻る</a>]</p>
-            <form action="/posts/{{$post->id}}" method="post">
-                @csrf
-                @method('DELETE')
-                <button type="submit">削除</button>
-            </form>
-        </div>
+        <h1>編集画面</h1>
+        <form action="/posts/{{ $post->id }}" method="POST" enctype="multipart/form-data">
+            @csrf
+            @method('PUT')
+            <div class="title">
+                <h2>タイトル</h2>
+                <input type="text" name="post[title]" value="{{ $post->title }}">
+            </div>
+            <div class="content">
+                <h2>本文</h2>
+                <textarea type='text' name="post[contents]" rows="8" cols="80">{{ $post->contents }}</textarea>
+            </div>
+            
+            <div class="images">
+                @foreach($images as $image)
+                    @if($image->post_id == $post->id)
+                        <img src = "{{ $image->path }}">
+                    @endif
+                @endforeach
+            </div>
+            
+            <div class = "image_edit">
+                画像を追加する場合▶<input name="image" type="file">
+            </div>    
+            <a href="">カテゴリ：{{ $post->category->name }}</a>
+            <div>
+                <input type="submit" value="保存">
+            </div>
+        </form>
     </body>
 </html>

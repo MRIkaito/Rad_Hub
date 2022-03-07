@@ -10,6 +10,7 @@
     <body>
         <h1>放射線技師Hub</h1>
         <p>[<a href = 'posts/create'>作成</a>]</p>
+        <div class="back">[<a href = '/'>ホームに戻る</a>]</div>
         @foreach($posts as $post)
         <div class='posts'>
             <h2 class='title'><a href='/posts/{{ $post->id }}'>{{ $post->title }}</a></h2>

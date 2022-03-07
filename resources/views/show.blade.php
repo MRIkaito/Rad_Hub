@@ -11,15 +11,27 @@
         <h1>放射線技師Hub</h1>
         <div class='post'>
             <h2 class='title'>{{ $post->title }}</h2>
-            <!--ここにカテゴリを入れる-->
+            
             <p class='body'>{{ $post->contents }}</p>
-            <p>[<a href="/posts/{$post->id}/edit">編集</a>]</p>
-            <p>[<a href="/">戻る</a>]</p>
+            
+            <p class='image'>
+                @foreach($images as $image)
+                    @if($image->post_id == $post->id)
+                        <img src = "{{ $image->path }}">
+                    @endif
+                @endforeach
+            </p>
+            
+            <p>[<a href="/posts/{{$post->id}}/edit">編集</a>]</p>
+            
             <form action="/posts/{{$post->id}}" method="post">
                 @csrf
                 @method('DELETE')
                 <button type="submit">削除</button>
             </form>
+            
+            <p>[<a href="/">戻る</a>]</p>
+            <a href="">カテゴリ：{{ $post->category->name }}</a>
         </div>
     </body>
 </html>

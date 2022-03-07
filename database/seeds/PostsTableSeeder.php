@@ -16,7 +16,7 @@ class PostsTableSeeder extends Seeder
             'title' => 'X線検査',
             'contents' => '妊婦は気をつけよう',
             'category_id' => 1,
-            'user_id' => 1,
+            // 'user_id' => 1,
             'created_at'=>now(),
             'updated_at'=>now(),
         ];
@@ -26,7 +26,7 @@ class PostsTableSeeder extends Seeder
             'title' => 'CT検査',
             'contents' => '被ばくは多い',
             'category_id' => 2,
-            'user_id' => 2,
+            // 'user_id' => 2,
             'created_at'=>now(),
             'updated_at'=>now(),
         ];

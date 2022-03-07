@@ -20,6 +20,7 @@ class CreatePostsTable extends Migration
             $table->integer('category_id')->nullable();
             $table->integer('user_id')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

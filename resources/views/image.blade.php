@@ -10,17 +10,19 @@
     <body>
         <h1>記事投稿画面</h1>
         
-        <!--入力フォーム-->
-        <form action="/image" method="post" enctype="multipart/form-data">
+        <form action='/posts' method = "post" enctype="multipart/form-data">
+        <form action="/image">
             @csrf
+        
+        <!--記事投稿-->
+            <div>
+                <input type="text" name="post[title]" placeholder="タイトル">
+            </div>
+            <div>
+                <textarea type="text" name="post[contents]" placeholder="本文をココから書き始める" rows="10" cols="100"></textarea>
+            </div>
             
-            <!--<div>-->
-            <!--    <input type="text" name="post[title]" placeholder="タイトル">-->
-            <!--</div>-->
-            <!--<div>-->
-            <!--    <textarea type="text" name="post[contents]" placeholder="本文をココから書き始める" rows="10" cols="100"></textarea>-->
-            <!--</div>-->
-            
+        <!--入力フォーム-->
             <div>
             <input name="title" type="text" placeholder="画像タイトル">
             <br>

@@ -10,26 +10,27 @@ use Storage;
 
 class ImagesController extends Controller
 {
-    public function show()
-    {
-     return view('image');
-    }
+    // public function show()
+    // {
+    //  return view('image');
+    // }
     
-    public function create(Request $request)
-    {
-        $image = new Image;
-        $form = $request->all();
+    // public function create(Request $request)
+    // {
+    //     $image = new Image;
+    //     $form = $request->all();
         
-        //s3へアップロードする
-        $picture = $request->file('image');
+    //     //s3へアップロードする
+    //     $picture = $request->file('image');
         
-        //バケット"rad-hub-bucket"にアップロード
-        $path = Storage::disk('s3')->putFile('rad-hub-bucket',$picture,'public');
+    //     //バケット"rad-hub-bucket"にアップロード
+    //     $path = Storage::disk('s3')->putFile('rad-hub-bucket',$picture,'public');
         
-        //アップロードした写真のフルパスを取得する
-        $image->path = Storage::disk('s3')->url($path);
-        $image->save();
+    //     //アップロードした写真のフルパスを取得する
+    //     $image->path = Storage::disk('s3')->url($path);
+    //     $image->save();
         
-        return redirect('/');
-    }
+    //     return redirect('/');
+    // }
+    
 }
