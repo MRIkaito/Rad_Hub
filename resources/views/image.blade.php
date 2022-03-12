@@ -7,6 +7,8 @@
          <!--Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
     </head>
+@extends('layouts.app')　　　
+@section('content')
     <body>
         <h1>記事投稿画面</h1>
         
@@ -33,4 +35,5 @@
             <p>[<a href="/">戻る</a>]</p>
         </form>
     </body>
+@endsection
 </html>

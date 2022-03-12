@@ -13,7 +13,8 @@ class Image extends Model
     [
     'title',
     'path',
-    'category_id'
+    'category_id',
+    'deleted_at'
     //  'post_id'
     ];
     public function category(){

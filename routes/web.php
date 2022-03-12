@@ -15,7 +15,7 @@
 //     return view('welcome');
 // });
 
-Route::get('/','PostController@index');
+Route::get('/','PostController@index')->middleware('auth');
 Route::get('/posts/create','PostController@create');
 Route::get('/posts/{post}/edit','PostController@edit');
 Route::get('/posts/{post}','PostController@show'); //{post}は何が入ってもいい変数
@@ -24,5 +24,5 @@ Route::delete('/posts/{post}', 'PostController@delete');
 Route::post('/posts','PostController@store');
 Route::get('/categories/{category}','CategoryController@index');
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/users/{user}','UserController@index');

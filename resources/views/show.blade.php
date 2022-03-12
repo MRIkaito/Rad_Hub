@@ -7,6 +7,8 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
     </head>
+@extends('layouts.app')　　　
+@section('content')
     <body>
         <h1>放射線技師Hub</h1>
         <div class='post'>
@@ -30,8 +32,12 @@
                 <button type="submit">削除</button>
             </form>
             
+            <p><a href=users/{{ $post->user_id }}>作成者：{{ $post->user->name }}</a></p>
+            
             <p>[<a href="/">戻る</a>]</p>
+            
             <a href="">カテゴリ：{{ $post->category->name }}</a>
         </div>
     </body>
+@endsection
 </html>

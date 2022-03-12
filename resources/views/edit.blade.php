@@ -7,6 +7,8 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
     </head>
+@extends('layouts.app')　　　
+@section('content')
     <body>
         <h1>放射線技師Hub</h1>
         <h1>編集画面</h1>
@@ -39,4 +41,5 @@
             </div>
         </form>
     </body>
+@endsection
 </html>
