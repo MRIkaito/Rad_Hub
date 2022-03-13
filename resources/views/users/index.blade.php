@@ -10,7 +10,7 @@
 @extends('layouts.app')　
 @section('content')
     <body>
-        <h1>放射線技師Hub　-作成者別表示-　</h1>
+        <h1>放射線技師Hub　-作成者別表示-</h1>
         <p>[<a href = 'posts/create'>作成</a>]</p>
         <div class="back">[<a href = '/'>ホームに戻る</a>]</div>
         @foreach($posts as $post)
@@ -18,7 +18,7 @@
             <h2 class='title'><a href='/posts/{{ $post->id }}'>{{ $post->title }}</a></h2>
             <p class='body'>{{ $post->contents }}</p>
             <p class='updated_at'>更新日：{{$post->updated_at}}</p>
-            <p class='category'><a href=categories/{{ $post->category->id }}>カテゴリー：{{ $post->category->name }}</a></p>
+            <p class='category'><a href = categories/{{ $post->category_id }}>カテゴリー：{{ $post->category->name }}</a></p>//URLがおかしい？
             @foreach($users as $user)
                 @if($post->user_id == $user->id)
                     <p>作成者：{{$user->name}}</p>

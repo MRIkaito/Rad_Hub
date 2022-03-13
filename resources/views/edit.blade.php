@@ -6,6 +6,7 @@
         <title>Radiation_Hub</title>
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     </head>
 @extends('layouts.app')　　　
 @section('content')
@@ -40,6 +41,7 @@
                 <input type="submit" value="保存">
             </div>
         </form>
+        <script src="{{ asset('js/app.js') }}"></script>
     </body>
 @endsection
 </html>

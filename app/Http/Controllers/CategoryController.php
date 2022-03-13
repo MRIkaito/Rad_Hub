@@ -10,7 +10,7 @@ class CategoryController extends Controller
 {
     public function index(Category $category, User $user){
         return view('categories.index') -> with(['posts' => $category->getByCategory(),
-                                                'users' => $user->getByUser()//このコードは修正
+                                                'users' => $user->get()
                                                 ]);
     }
 }

@@ -21,7 +21,7 @@
             <p class='category'>カテゴリー：{{ $post->category->name }}</p>
             @foreach($users as $user)
                 @if($post->user_id == $user->id)
-                    <p><a href=users/{{ $post->user_id }}>作成者：{{$user->name}}</a></p>
+                    <p><a href=users/{{ $post->user_id }}>作成者：{{$user->name}}</a></p>//URLがおかしい？
                 @endif
             @endforeach
         </div>
