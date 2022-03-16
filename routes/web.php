@@ -15,6 +15,8 @@
 //     return view('welcome');
 // });
 
+Auth::routes();
+Route::group(['middleware' => ['auth']], function(){
 Route::get('/','PostController@index')->middleware('auth');
 Route::get('/posts/create','PostController@create');
 Route::get('/posts/{post}/edit','PostController@edit');
@@ -25,4 +27,6 @@ Route::post('/posts','PostController@store');
 Route::get('/categories/{category}','CategoryController@index');
 Route::get('/users/{user}','UserController@index');
 Route::get('/home', 'HomeController@index')->name('home');
+});
 Auth::routes();
+Route::get('/home', 'HomeController@index')->name('home');

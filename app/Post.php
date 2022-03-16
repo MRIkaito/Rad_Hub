@@ -28,4 +28,8 @@ class Post extends Model
     public function getPaginateByLimit(int $imit_count=10){
         return $this::with('category')->orderBy('updated_at','DESC')->paginate($limit_count);
     }
+    public function getByLimit(int $limit_count = 5){
+        // updated_atで降順に並べたあと、limitで件数制限をかける
+        return $this->orderBy('updated_at', 'DESC')->paginate($limit_count);
+    }
 }

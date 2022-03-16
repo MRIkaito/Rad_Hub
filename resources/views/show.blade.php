@@ -11,35 +11,39 @@
 @extends('layouts.app')　　　
 @section('content')
     <body>
-        <h1>放射線技師Hub</h1>
+        <h1 >放射線技師Hub</h1>
         <div class='post'>
-            <h2 class='title'>{{ $post->title }}</h2>
+            <h2><u>{{ $post->title }}</u></h2>
             
-            <p class='body'>{{ $post->contents }}</p>
-            
-            <p class='image'>
+            <p class="text-center">
                 @foreach($images as $image)
                     @if($image->post_id == $post->id)
-                        <img src = "{{ $image->path }}">
+                        <img  src = "{{ $image->path }}">
                     @endif
                 @endforeach
             </p>
             
-            <p>[<a href="/posts/{{$post->id}}/edit">編集</a>]</p>
+            <p class='body' style="white-space:pre-wrap;">{{ $post->contents }}</p>
+            
+            <div class = "d-flex flex-row">
+                <a href="/../categories/{{$post->category_id}}">カテゴリ：{{ $post->category->name }}　</a>
+                <p><a href='/../users/{{ $post->user_id }}'>作成者：{{ $post->user->name }}</a></p>
+            </div>
             
             <form action="/posts/{{$post->id}}" method="post">
-                @csrf
-                @method('DELETE')
-                <button type="submit">削除</button>
+            @csrf
+            @method('DELETE')
+            <button type="submit" >削除</button>
             </form>
             
-            <p><a href=users/{{ $post->user_id }}>作成者：{{ $post->user->name }}</a></p>
+            <!--編集は，作成者のみ行える-->
+            @if(Auth::user()->name == $post->user->name)
+                <p><a href="/posts/{{$post->id}}/edit" class="btn btn-primary">編集</a></p>
+            @endif
             
-            <p>[<a href="/">戻る</a>]</p>
-            
-            <a href="">カテゴリ：{{ $post->category->name }}</a>
+            <p><a href="/" class="btn btn-dark">戻る</a></p>
         </div>
-        <script src="{{ asset('js/app.js') }}"></script>
+        <!--<script src="{{ asset('js/app.js') }}"></script>-->
     </body>
 @endsection
 </html>

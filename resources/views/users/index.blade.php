@@ -11,19 +11,30 @@
 @section('content')
     <body>
         <h1>放射線技師Hub　-作成者別表示-</h1>
-        <p>[<a href = 'posts/create'>作成</a>]</p>
-        <div class="back">[<a href = '/'>ホームに戻る</a>]</div>
+        <div class = "d-flex flex-row">
+            <p><a href = '/../posts/create'　class="btn btn-primary">記事を作成</a></p>
+            <div class="back"><a href = '/'  class="btn btn-dark">トップページに戻る</a></div>
+        </div>
         @foreach($posts as $post)
-        <div class='posts'>
-            <h2 class='title'><a href='/posts/{{ $post->id }}'>{{ $post->title }}</a></h2>
-            <p class='body'>{{ $post->contents }}</p>
-            <p class='updated_at'>更新日：{{$post->updated_at}}</p>
-            <p class='category'><a href = categories/{{ $post->category_id }}>カテゴリー：{{ $post->category->name }}</a></p>//URLがおかしい？
-            @foreach($users as $user)
-                @if($post->user_id == $user->id)
-                    <p>作成者：{{$user->name}}</p>
-                @endif
-            @endforeach
+        <div class="mb-5">
+            <div class='posts'>
+                <h2 class='title'><a href='/posts/{{ $post->id }}'>{{ $post->title }}</a></h2>
+                <p class='body'>{{ Str::limit($post->contents,20,'...') }}</p>
+                @foreach($images as $image)
+                    @if($image->post_id == $post->id)
+                        <img  src = "{{ $image->path }}">
+                    @endif
+                @endforeach
+                <p class='updated_at'>更新日：{{$post->updated_at}}</p>
+                <div class = "d-flex flex-row">
+                    <p class='category'><a href = '/../categories/{{ $post->category_id }}'>カテゴリー：{{ $post->category->name }}　</a></p>
+                    @foreach($users as $user)
+                        @if($post->user_id == $user->id)
+                            <p>作成者：{{$user->name}}</p>
+                        @endif
+                    @endforeach
+                </div>
+            </div>
         </div>
         @endforeach
     </body>

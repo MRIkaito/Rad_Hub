@@ -12,9 +12,10 @@ use Storage;
 
 class PostController extends Controller
 {
-    public function index(Post $post, User $user){
+    public function index(Post $post, User $user, Image $image){
         return view('index') -> with([
-                                'posts' => $post->get(),
+                                'images' => $image->get(),
+                                'posts' => $post->getByLimit(),
                                 'users' => $user->get()
                                 ]);
         // ->get()を記述することで，DBからデータを取ってくるという役目を果たす
@@ -42,8 +43,6 @@ class PostController extends Controller
         
         //画像があれば，保存する🔽
         if ($request->file('image')){
-            //画像保存の機能▶これはいらない，勘違い．
-            // $form = $request->all();
             
             //s3へアップロードする
             $picture = $request->file('image');

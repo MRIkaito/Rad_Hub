@@ -11,8 +11,7 @@
 @extends('layouts.app')　　　
 @section('content')
     <body>
-        <h1>放射線技師Hub</h1>
-        <h1>編集画面</h1>
+        <h1>放射線技師Hub -編集画面-</h1>
         <form action="/posts/{{ $post->id }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
@@ -34,7 +33,7 @@
             </div>
             
             <div class = "image_edit">
-                画像を追加する場合▶<input name="image" type="file">
+                画像を追加する場合▶<input name="image" type="file" value="画像を追加">
             </div>    
             <a href="">カテゴリ：{{ $post->category->name }}</a>
             <div>
