@@ -17,7 +17,7 @@
             @csrf
             <div class='title'>
                 <!--タイトル-->
-                <input type="text" name="post[title]" placeholder="タイトル">
+                <input type="text" name="post[title]" placeholder="タイトル" required="required">
                 
                 <!--カテゴリ-->
                 <select name="post[category_id]" size='1'>
@@ -27,10 +27,10 @@
                 </select>
                 
                 <!--本文-->
-                <br><textarea name="post[contents]" placeholder="本文" rows="10" cols="100"></textarea>
+                <br><textarea name="post[contents]" placeholder="本文" rows="10" cols="100" required="required"></textarea>
             
                 <!--画像・入力フォーム-->
-                <div class="image"><input type="file" name="image[0]"></div>
+                <div class="image" id="form_area"><input type="file" name="image[0]" accept=".jpg,.jpeg,.JPG,.JPEG,.png,.gif"><拡張子「.jpg」「.jpeg」「.png」「.gif」が投稿可></div>
                 
                 <!--作成者情報-->
                 <input type="hidden" name="post[user_id]" value="{{ Auth::user()->id }}">
