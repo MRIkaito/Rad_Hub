@@ -12,7 +12,6 @@
 @section('content')
     <body>
         <h1>放射線技師Hub</h1>
-        <div>ユーザー：{{Auth::user()->name}}</div>
         <p><a href = 'posts/create' class="btn btn-primary">記事を作成</a></p>
         @foreach($posts as $post)
             <div class="mb-5">
