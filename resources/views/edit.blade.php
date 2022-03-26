@@ -35,7 +35,7 @@
             <div class = "image_edit">
                 画像を追加する場合▶<input name="image" type="file" value="画像を追加">
             </div>    
-            <a href="">カテゴリ：{{ $post->category->name }}</a>
+            <a>カテゴリ：{{ $post->category->name }}</a>
             <div>
                 <input type="submit" value="保存">
             </div>

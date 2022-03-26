@@ -30,15 +30,16 @@
                 <br><textarea name="post[contents]" placeholder="本文" rows="10" cols="100" required="required"></textarea>
             
                 <!--画像・入力フォーム-->
-                <div class="image" id="form_area"><input type="file" name="image[0]" accept=".jpg,.jpeg,.JPG,.JPEG,.png,.gif"><拡張子「.jpg」「.jpeg」「.png」「.gif」が投稿可></div>
+                <div class="image" id="form_area"><input type="file" name="image[0]" accept=".jpg,.jpeg,.JPG,.JPEG,.png,.gif"></div>
                 
                 <!--作成者情報-->
                 <input type="hidden" name="post[user_id]" value="{{ Auth::user()->id }}">
             </div>
             
-            <input id="form" type="button" value="画像ファイルを追加" >
+            <!--<input id="form" type="button" value="画像ファイルを追加" >-->
+                <!--※拡張子「.jpg」「.jpeg」「.png」「.gif」が投稿可．画像は2枚まで-->
             <br><button type="submit" value="画像・記事アップロード">送信</button>
-            <p>[<a href="/">戻る</a>]</p>
+            <p><a href="/" class="btn btn-dark">戻る</a></p>
         </form>
         
         <script src={{ asset('js/add_form.js') }} defer></script>

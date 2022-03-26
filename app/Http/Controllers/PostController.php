@@ -41,26 +41,31 @@ class PostController extends Controller
         //投稿記事保存の機能
         $post->fill($request['post'])->save();
         
+        // $sure = $request->file('image');//このままだと配列
+        // dd($sure);
+        // $gazo=array_shift($sure);//配列の一番最初を$gazoに格納した
+        
         //画像があれば，保存する🔽
         if ($request->file('image')){
             
-            //s3へアップロードする
-            $picture = $request->file('image');
+            $pictures = $request->file('image');
             
-            //バケット"rad-hub-bucket"にアップロード
-            $path = Storage::disk('s3')->putFile('rad-hub-bucket',$picture,'public');
-           
-            //アップロードした写真のフルパスを取得する
-            $image->path = Storage::disk('s3')->url($path);
-            $image->post_id=$post->id;
-            
-            //画像のカテゴリ保存の機能
-            $image->category_id = $request['post']['category_id'];
-            
-            //最後に保存する
-            $image->save();
+            foreach($pictures as $picture){
+                
+                //バケット"rad-hub-bucket"にアップロード
+                $path = Storage::disk('s3')->putFile('rad-hub-bucket',$picture,'public');
+               
+                //アップロードした写真のフルパスを取得する
+                $image->path = Storage::disk('s3')->url($path);
+                $image->post_id=$post->id;
+                
+                //画像のカテゴリ保存の機能
+                $image->category_id = $request['post']['category_id'];
+                
+                //最後に保存する
+                $image->save();
+            }
         };
-        
         return redirect('/posts/'.$post->id);
     }
     public function delete(Post $post, Image $image){
